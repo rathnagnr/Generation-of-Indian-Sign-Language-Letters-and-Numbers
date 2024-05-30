@@ -1,5 +1,5 @@
 ## Welcome to this repository
 
-## Generation of Indian Sign Language Letters and Numbers
+### Generation of Indian Sign Language Letters and Numbers
 
-### This repository under progress
+# This repository under progress
