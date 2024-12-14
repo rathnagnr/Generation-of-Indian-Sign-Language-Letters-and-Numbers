@@ -8,6 +8,24 @@ Contents:
 **1. Description:**
 
 
+
+**2. Methodology:**
+
+**3. Examples:**
+
+**3. Installation:**
+
+*1. Requirements Installation*
+
+*2. Inference*
+
+*3. Dataset ceation*
+
+*4. Training*
+
+*5. Evaluation*
+
+
 # This repository under progress we are updating the repository and adding code.
 
-# first change by local
+# first change by local. Now second change by local.
