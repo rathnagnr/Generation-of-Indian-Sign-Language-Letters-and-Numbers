@@ -34,6 +34,15 @@ Figure 2: Our proposed architecture.
 
 **3. Examples:**
 
+Here in this figure sign language output corresponding to sentence "Welcome to the class where you serve." is given.
+
+<p align="center">
+  <img width="900" height="800" src="">
+</p>
+<p align="center">
+Figure 2: Our proposed architecture.
+</p>
+
 **3. Installation:**
 
 *1. Requirements Installation*
