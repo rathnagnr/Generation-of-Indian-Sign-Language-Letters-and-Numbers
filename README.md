@@ -57,6 +57,8 @@ cd Generation-of-Indian-Sign-Language-Letters-and-Numbers
 *2. Install Environment via Anaconda/Miniconda*
 ```bash
 conda create -n ISLGen python=3.12.2
+conda activate ISLGen
+pip install -r requirements.txt
 
 ```
 
