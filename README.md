@@ -37,7 +37,7 @@ Figure 2: Our proposed architecture.
 Here in this figure sign language output corresponding to sentence "Welcome to the class where you serve." is given.
 
 <p align="center">
-  <img width="1380" height="300" src="https://github.com/Ajeet-kumar1/Generation-of-Indian-Sign-Language-Letters-and-Numbers/blob/main/samples/string9-1.png">
+  <img width="1280" height="250" src="https://github.com/Ajeet-kumar1/Generation-of-Indian-Sign-Language-Letters-and-Numbers/blob/main/samples/string9-1.png">
 </p>
 <p align="center">
 Figure 2: Output of Sign language corresponding to "Welcome to class where you serve" with our model.
