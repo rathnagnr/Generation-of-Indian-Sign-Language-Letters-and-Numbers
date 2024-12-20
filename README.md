@@ -9,7 +9,6 @@ Contents:
 **1. Description:**
 
 Sign language generation and recognition are essential tasks for establishing effective two-way communication between individuals with hard-of-hearing and the general population. While significant advancements have been made in the recognition of sign languages from various countries, Indian Sign Language generation remains underexplored, particularly using Generative AI technologies.
-
 Our objective is to develop a generative model capable of producing high-quality images of Indian Sign Language letters, numbers, and some popular words. The Progressive Growing of Generative Adversarial Networks (ProGAN) is known for generating high-resolution images, whereas the Self-Attention Generative Adversarial Network (SAGAN) excels at creating feature-rich images at medium resolutions. Balancing image resolution and detail is important for generating sign language images.
 To address this, we designed a modified Attention-based Generative Adversarial Network (GAN) that combines the strengths of both models to produce feature-rich, high-resolution, and class-conditional Indian Sign Language images. Our approach outperforms ProGAN, achieving significant improvements in Inception Score (IS) and Frechet Inception Distance (FID), with increases of 3.2 and 30.12, respectively. Additionally, we are publishing a large dataset incorporating high-quality images of Indian Sign Language alphabets, numbers, and 129 words.
 
