@@ -68,6 +68,3 @@ conda create -n ISLGen python=3.8.5
 *5. Evaluation*
 
 
-# This repository under progress we are updating the repository and adding code.
-
-# first change by local. Now second change by local.
