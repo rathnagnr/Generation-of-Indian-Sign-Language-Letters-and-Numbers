@@ -64,6 +64,16 @@ pip install -r requirements.txt
 
 **3. Inference**
 
+To perform inference, you will need the trained model weights. Ensure you have trained the model before attempting inference. Due to space limitations, we are sharing a small pre-trained model capable of generating Indian Sign Language (ISL) letters with dimensions of 64x64. Please note that this model is intended for quick testing and demonstration purposes only. You can download it from [here](www.google.com).
+Once downloaded store it into your current working directory and add it's path in inference.py and run below command.
+
+```bash
+python inference.py --step 4 --num_classes 35
+```
+At the terminal, you can input the prompt text for generating the desired image output. This model includes 35 classes, and the generated image resolution is 64x64(step 4). When testing with your own model, please change step (step 0 = 4x4, step 1 = 8x8, step 2 = 16x16, step 3 = 32x32  and so on) and classes accordingly.
+
+
+
 *4. Training*
 
 *5. Evaluation*
