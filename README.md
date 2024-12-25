@@ -13,7 +13,7 @@ Our objective is to develop a generative model capable of producing high-quality
 To address this, we designed a modified Attention-based Generative Adversarial Network (GAN) that combines the strengths of both models to produce feature-rich, high-resolution, and class-conditional Indian Sign Language images. Additionally, we are publishing a large dataset incorporating high-quality images of Indian Sign Language alphabets, numbers, and 129 words.
 
 <p align="center">
-  <img width="1080" height="500" src="https://github.com/Ajeet-kumar1/Generation-of-Indian-Sign-Language-Letters-and-Numbers/blob/main/samples/dataset_samp.png?raw=true">
+  <img width="1080" height="450" src="https://github.com/Ajeet-kumar1/Generation-of-Indian-Sign-Language-Letters-and-Numbers/blob/main/samples/dataset_samp.png?raw=true">
 </p>
 <p align="center">
 Figure 1: Some samples of our dataset
@@ -56,12 +56,13 @@ cd Generation-of-Indian-Sign-Language-Letters-and-Numbers
 
 *2. Install Environment via Anaconda/Miniconda*
 ```bash
-conda create -n ISLGen python=3.8.5
+conda create -n ISLGen python=3.12.2
+conda activate ISLGen
+pip install -r requirements.txt
 
 ```
 
-
-*3. Dataset ceation*
+**3. Inference**
 
 *4. Training*
 
