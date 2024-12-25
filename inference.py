@@ -4,20 +4,26 @@ import torch                                                          # type:ign
 from torch import nn                                                  # type:ignore
 import numpy as np                                                    # type:ignore
 from attention import Self_Attention
+from config import get_inference_config
 import torch.nn.functional as F                                       # type:ignore
 import torchvision.utils as vutils                                    # type:ignore
 from PIL import Image, ImageDraw, ImageFont
 
 
 # Initialize important variables
-step = 4                   # It is for 64x64 resolution only.
-num_classes = 35           # Change it according to your dataset
 img_channels = 3
 in_channel = 512 
 z_dim = 512
-grad_penality = 10  
+grad_penality = 10
 factors = [1, 1, 1, 1, 1 / 2, 1 / 4, 1 / 8, 1 / 16, 1 / 32]
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+# Load another variables from config 
+args = get_inference_config()
+step = args.step
+num_classes = args.num_classes
+
+# Make a class dictionary of all letters.
 classes_dict = {'1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, 'A': 10, 
                 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15, 'G': 16, 'H': 17, 'I': 18, 'J': 19, 'K': 20,
                 'L': 21, 'M': 22, 'N': 23, 'O': 24, 'P': 25, 'Q': 26, 'R': 27, 'S': 28, 'T': 29, 'U': 30,
@@ -286,7 +292,7 @@ with torch.no_grad():  # Disable gradient computation for efficiency
 
     # Combine all images into a single tensor and remove the last blank image
     all_images = torch.cat(all_images[:-1], dim=0)  #
-    save_path = f"./generated_image_{4 * 2 ** step}_2.pdf"  
+    save_path = f"./generated_image_{4 * 2 ** step}_2.png"  
 
     # Save the labeled image grid as a PDF
     image_With_Labels(all_images, all_labels, save_path, nrow=8)
