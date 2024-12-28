@@ -85,6 +85,3 @@ The comeplete training is given in three major steps.
 **5. Evaluation**
 
 
-# This repository under progress we are updating the repository and adding code.
-
-# first change by local. Now second change by local.
