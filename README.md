@@ -77,11 +77,30 @@ The comeplete training is given in three major steps.
 
 *1.Dataset preparation*
 
+If you have your own dataset then add the path of dataset in ```main.py``` file else if you want to use our dataset then follow given steps:
+
+(i) Download the dataset videos from [this link](www.my_data.com)
+
+(ii) Now in the ```extract.py``` file in this line ```cam = cv2.VideoCapture("./my_video/class_0.mp4")``` add path of a class of video. And also change the root_path to store images corresponding to this class.
+
+(iii) Run the following command ```python3 extract.py```
+
+(iii) Repeat the step (ii) and (iii) for remaining classes. Now you have dataset in folder by name ```data```.
+
 *2. Hyperparamater tuning*
+
+While training you need to keep this changes based on your requirements.
 
 *3. Train the model*
 
+To train the model run the following command.
+
+```
+python3 main.py
+```
 
 **5. Evaluation**
+
+For the evaliuation a quite.
 
 
