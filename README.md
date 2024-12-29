@@ -64,7 +64,7 @@ pip install -r requirements.txt
 
 **3. Inference**
 
-To perform inference, you will need the trained model weights. Ensure you have trained the model before attempting inference. Due to space limitations, we are sharing a small pre-trained model capable of generating Indian Sign Language (ISL) letters with dimensions of 64x64. Please note that this model is intended for quick testing and demonstration purposes only. You can download it from [here](www.google.com).
+To perform inference, you will need the trained model weights. Ensure you have trained the model before attempting inference. Due to space limitations, we are sharing a small pre-trained model capable of generating Indian Sign Language (ISL) letters with dimensions of 64x64. Please note that this model is intended for quick testing and demonstration purposes only. You can download it from [here](https://drive.google.com/file/d/1IHfyL4oLNgch0wIW5Sxh8cj_nvYVgnVb/view?usp=sharing).
 Once downloaded store it into your current working directory and add it's path in inference.py and run below command.
 
 ```bash
@@ -79,7 +79,7 @@ The comeplete training is given in three major steps.
 
 If you have your own dataset then add the path of dataset in ```main.py``` file else if you want to use our dataset then follow given steps:
 
-(i) Download the dataset videos from [this link](www.my_data.com)
+(i) Download the dataset videos from [this link](https://drive.google.com/drive/folders/1EQfkP9LGNqL8WkwscS7TvQWAQgEjbJxG?usp=sharing)
 
 (ii) Now in the ```extract.py``` file in this line ```cam = cv2.VideoCapture("./my_video/class_0.mp4")``` add path of a class of video. And also change the root_path to store images corresponding to this class.
 
