@@ -7,7 +7,7 @@ from attention import Self_Attention
 from config import get_inference_config
 import torch.nn.functional as F                                       # type:ignore
 import torchvision.utils as vutils                                    # type:ignore
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont                           # type:ignore
 
 
 # Initialize important variables
