@@ -89,18 +89,16 @@ If you have your own dataset then add the path of dataset in ```main.py``` file 
 
 *2. Hyperparamater tuning*
 
-While training you need to keep this changes based on your requirements.
+While training you need to keep parameters based on your requirements.
 
 *3. Train the model*
 
-To train the model run the following command.
+Add the dataset path in ```train.py``` file, collect all hyperparameters according to config file and run below given commands. Note: Below one is just an example in our case.
 
 ```
-python3 main.py
+mkdir ckpt_attn
+python train.py [50, 50, 45, 45, 35, 30, 30, 25] 35 [16, 16, 16, 16, 10, 10, 8, 8] 128
 ```
 
-**5. Evaluation**
-
-For the evaliuation a quite.
-
-
+If facing any issue then create an issue in issue section. 
+Happy Learning
