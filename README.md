@@ -97,7 +97,7 @@ Add the dataset path in ```train.py``` file, collect all hyperparameters accordi
 
 ```
 mkdir ckpt_attn
-python train.py [50, 50, 45, 45, 35, 30, 30, 25] 35 [16, 16, 16, 16, 10, 10, 8, 8] 128
+python train.py --num_classes 35 --image_size 128
 ```
 
 If facing any issue then create an issue in issue section. 
