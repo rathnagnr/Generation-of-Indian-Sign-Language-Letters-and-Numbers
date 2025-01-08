@@ -7,7 +7,7 @@ from attention import Self_Attention
 from config import get_inference_config
 import torch.nn.functional as F                                       # type:ignore
 import torchvision.utils as vutils                                    # type:ignore
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont                           # type:ignore
 
 
 # Initialize important variables
@@ -199,7 +199,7 @@ epoch = 19
 gen = Generator(
     z_dim, in_channel, num_classes, img_channels=img_channels
 ).to(device)
-gen_checkpoint_path = f'/media/ajeet/B4363DE3363DA770/Users/Ajeet/Downloads/Masters/Main-Project/Publication/git/Ajeet/all_experiments/checkpoint_G_{4 * 2 ** step}_{epoch}.pth'
+gen_checkpoint_path = f'./checkpoint_G_{4 * 2 ** step}_{epoch}.pth'
 checkpoint_G = torch.load(gen_checkpoint_path)
 gen.load_state_dict(checkpoint_G['model_state_dict'])
 alpha = checkpoint_G['alpha']
@@ -244,7 +244,7 @@ def image_With_Labels(sample, labels, save_path, nrow=8, black_image_size=64):
     image_grid_pil = Image.fromarray((image_grid.permute(1, 2, 0).cpu().numpy() * 255).astype(np.uint8))
     # Initialize the font and drawing context
     custom_font = ImageFont.truetype(
-        '/media/ajeet/B4363DE3363DA770/Users/Ajeet/Downloads/Masters/Main-Project/Publication/git/Ajeet/Generation-of-Indian-Sign-Language-Letters-and-Numbers-main/AurulentSansMono-Regular.otf',
+        './AurulentSansMono-Regular.otf',
         size=14
     )
     draw = ImageDraw.Draw(image_grid_pil)

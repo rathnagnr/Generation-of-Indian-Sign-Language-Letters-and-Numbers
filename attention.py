@@ -60,3 +60,81 @@ class Self_Attention(nn.Module):
         out = self.gamma * out + x
 
         return out
+
+
+# Define weight standardised convolution layer
+class WSConv2d(nn.Module):
+    def __init__(
+        self, in_channels, out_channels, kernel_size=3, stride=1, padding=1,
+    ):
+        super(WSConv2d, self).__init__()
+        self.conv      = nn.Conv2d(in_channels, out_channels, kernel_size, stride, padding)
+        self.scale     = (2 / (in_channels * (kernel_size ** 2))) ** 0.5
+        self.bias      = self.conv.bias #Copy the bias of the current column layer
+        self.conv.bias = None      #Remove the bias
+        # initialize conv layer
+        nn.init.normal_(self.conv.weight)
+        nn.init.zeros_(self.bias)
+    # Perform forward pass
+    def forward(self, x):
+        return self.conv(x * self.scale) + self.bias.view(1, self.bias.shape[0], 1, 1)
+    
+# Define data normalization(L2)
+class PixelNorm(nn.Module):
+    def __init__(self):
+        super(PixelNorm, self).__init__()
+        # Take the epsilon a samll value
+        self.epsilon = 1e-8
+    def forward(self, x):
+        return x / torch.sqrt(torch.mean(x ** 2, dim=1, keepdim=True) + self.epsilon)
+    
+
+# Define a convolution block that uses pixel normalization and two weight-standardized convolutions.
+class ConvBlock(nn.Module):
+    def __init__(self, in_channels, out_channels, use_pixelnorm=True):
+        """
+        Initializes the convolution block.
+        Args:
+            in_channels (int): Number of input channels.
+            out_channels (int): Number of output channels.
+            use_pixelnorm (bool): Flag to determine whether to apply PixelNorm. Default is True.
+        """
+        super(ConvBlock, self).__init__()
+        self.use_pn = use_pixelnorm  # Store the pixel normalization flag
+        # First convolution layer with weight standardization
+        self.conv1 = WSConv2d(in_channels, out_channels)
+        # Add self-attention layers
+        self.attention1 = Self_Attention(256, 'relu')  # First attention layer for specific conditions
+        self.attention2 = Self_Attention(128, 'relu')  # Second attention layer (currently unused)
+        # Second convolution layer with weight standardization
+        self.conv2 = WSConv2d(out_channels, out_channels)
+        # LeakyReLU activation function
+        self.leaky = nn.LeakyReLU(0.2)
+        # Pixel normalization layer
+        self.pn = PixelNorm()
+
+    def forward(self, x, step):
+        """
+        Forward pass for the convolution block.
+        Args:
+            x (tensor): Input feature map.
+            step (int): Step value to control the application of attention layers.
+        Returns:
+            x (tensor): Output feature map after applying the convolution block.
+        """
+        # Apply first convolution and activation
+        x = self.leaky(self.conv1(x))
+        # Apply pixel normalization if enabled
+        x = self.pn(x) if self.use_pn else x
+        # Apply the first self-attention layer only if step == 3
+        if step == 3:
+            x = self.attention1(x)
+        # Uncomment the following lines if you want to enable the second attention layer for step == 4
+        # elif step == 4:
+        #     x = self.attention2(x)
+
+        # Apply second convolution and activation
+        x = self.leaky(self.conv2(x))
+        # Apply pixel normalization if enabled
+        x = self.pn(x) if self.use_pn else x
+        return x

@@ -64,8 +64,41 @@ pip install -r requirements.txt
 
 **3. Inference**
 
-*4. Training*
+To perform inference, you will need the trained model weights. Ensure you have trained the model before attempting inference. Due to space limitations, we are sharing a small pre-trained model capable of generating Indian Sign Language (ISL) letters with dimensions of 64x64. Please note that this model is intended for quick testing and demonstration purposes only. You can download it from [here](https://drive.google.com/file/d/1IHfyL4oLNgch0wIW5Sxh8cj_nvYVgnVb/view?usp=sharing).
+Once downloaded store it into your current working directory and add it's path in inference.py and run below command.
 
-*5. Evaluation*
+```bash
+python inference.py --step 4 --num_classes 35
+```
+At the terminal, you can input the prompt text for generating the desired image output. This model includes 35 classes, and the generated image resolution is 64x64(step 4). When testing with your own model, please change step (step 0 = 4x4, step 1 = 8x8, step 2 = 16x16, step 3 = 32x32  and so on) and classes accordingly.
 
+**4. Training**
+The comeplete training is given in three major steps.
 
+*1.Dataset preparation*
+
+If you have your own dataset then add the path of dataset in ```main.py``` file else if you want to use our dataset then follow given steps:
+
+(i) Download the dataset videos from [this link](https://drive.google.com/drive/folders/1EQfkP9LGNqL8WkwscS7TvQWAQgEjbJxG?usp=sharing)
+
+(ii) Now in the ```extract.py``` file in this line ```cam = cv2.VideoCapture("./my_video/class_0.mp4")``` add path of a class of video. And also change the root_path to store images corresponding to this class.
+
+(iii) Run the following command ```python3 extract.py```
+
+(iii) Repeat the step (ii) and (iii) for remaining classes. Now you have dataset in folder by name ```data```.
+
+*2. Hyperparamater tuning*
+
+While training you need to keep parameters based on your requirements.
+
+*3. Train the model*
+
+Add the dataset path in ```train.py``` file, collect all hyperparameters according to config file and run below given commands. Note: Below one is just an example in our case.
+
+```
+mkdir ckpt_attn
+python train.py [50, 50, 45, 45, 35, 30, 30, 25] 35 [16, 16, 16, 16, 10, 10, 8, 8] 128
+```
+
+If facing any issue then create an issue in issue section. 
+Happy Learning
