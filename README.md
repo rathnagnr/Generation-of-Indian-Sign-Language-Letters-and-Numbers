@@ -1,8 +1,8 @@
 # Generation of Indian Sign Language Letters, Numbers, and Words
 
-## Inference Notebook: [click here](https://)
+## Inference Notebook: [click here](https://colab.research.google.com/drive/1K2yfd00EV7k7xI7zREch1Izm0rxU9zn8?usp=sharing)
 
-### Official implementation for the paper [Generation of Indian Sign Language Letters, Numbers, and Words](https://ieeexplore.ieee.org/document/10721847)
+### Official implementation for the paper [Generation of Indian Sign Language Letters, Numbers, and Words](http://arxiv.org/abs/2508.09522)
 #### Note: Our ProGAN code is highly inspired by Abd Elilah TAUIL from [DigitalOcean](https://blog.paperspace.com/implementation-of-progan-from-scratch/)
 Contents:
 
